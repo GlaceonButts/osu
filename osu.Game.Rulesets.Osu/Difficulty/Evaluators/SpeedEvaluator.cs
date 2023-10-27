@@ -57,7 +57,7 @@ namespace osu.Game.Rulesets.Osu.Difficulty.Evaluators
                 speedBonus = 1 + 0.75 * Math.Pow((min_speed_bonus - strainTime) / speed_balancing_factor, 2);
 
             double travelDistance = osuPrevObj?.TravelDistance ?? 0;
-            double distance = Math.Min(single_spacing_threshold, (travelDistance * travelDistance) / 2.4 + osuCurrObj.MinimumJumpDistance);
+            double distance = Math.Min(single_spacing_threshold, (travelDistance * travelDistance * travelDistance) / 3.2 + osuCurrObj.MinimumJumpDistance);
 
             return (speedBonus + speedBonus * Math.Pow(distance / single_spacing_threshold, 3.5)) * doubletapness / strainTime;
         }
